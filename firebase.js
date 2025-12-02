@@ -1,6 +1,8 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, PhoneAuthProvider, signInWithPhoneNumber } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import 'firebase/auth'; // Compat for auth
+import 'firebase/firestore'; // Compat for firestore
+import * as Location from 'expo-location';
+import MapView, { Heatmap } from 'react-native-maps';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDPQBoOhNWSqUMEcawIF9U7zExUYe_oe1g",
@@ -12,5 +14,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+export const auth = app.auth();
+export const db = app.firestore();
