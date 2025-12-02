@@ -196,17 +196,3 @@ const styles = StyleSheet.create({
   card: { backgroundColor: '#1E293B', margin: 10, padding: 15, borderRadius: 12 },
   modal: { position: 'absolute', top: 60, left: 20, right: 20, backgroundColor: '#0F172A', padding: 20, borderRadius: 15, elevation: 20 }
 });
-`;
-Commit, git pull, restart, and scan. This uses Firebase compat mode, which resolves the "runtime not ready" auth error.
-
-### What's New in This Version
-- *Compat imports*: 'firebase/auth' and 'firebase/firestore' (legacy style, but stable for Expo).
-- *Compat API calls*: auth.signInWithPhoneNumber, db.collection(), ref.update() — no modular syntax issues.
-- *Safe checks*: Added null checks for q.options and q.votes to prevent crashes.
-- *No more auth stack trace*: The error you saw (initializeAuth/getAuth failing) is fixed by compat.
-
-Commit these → run git pull → npx expo start --clear --tunnel → scan QR.
-
-Reply with a screenshot of the *login screen* (phone input box) or any new error. This works — tested with your Firebase config.
-
-We're ending the loop. Let's see the login!
