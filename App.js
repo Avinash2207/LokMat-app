@@ -100,7 +100,7 @@ function AdminPanel() {
   const create = async () => {
     await db.collection('questions').add({
       title,
-      options: options.split('\n').filter(o => o.trim()),
+      options: options.split('\\n').filter(o => o.trim()),
       evergreen,
       votes: {},
       heatmap: [],
