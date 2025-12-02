@@ -127,7 +127,9 @@ function QuestionCard({ q, user, location, onPress }) {
     const ref = doc(db, 'questions', q.id);
     await updateDoc(ref, {
       [votes.${user.uid}]: selected,
-      [heatmap]: location ? [...(q.heatmap || []), { latitude: location.latitude, longitude: location.longitude, weight: 1 }] : q.heatmap || []
+      heatmap: location 
+     ? [...(q.heatmap || []), { latitude: location.latitude, longitude: location.longitude, weight: 1 }]
+     : q.heatmap || []
     });
     setVoted(true);
     Alert.alert('Voted!');
