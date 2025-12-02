@@ -126,7 +126,7 @@ function QuestionCard({ q, user, location, onPress }) {
     if (!selected) return;
     const ref = doc(db, 'questions', q.id);
     await updateDoc(ref, {
-      [votes.${user.uid}]: selected,
+      ['votes.${user.uid}']: selected,
       heatmap: location 
      ? [...(q.heatmap || []), { latitude: location.latitude, longitude: location.longitude, weight: 1 }]
      : q.heatmap || []
