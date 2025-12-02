@@ -134,15 +134,17 @@ function QuestionCard({ q, user, location, onOpen }) {
   const hasVoted = q.votes?.[user.uid];
 
   const vote = async () => {
-  if (!selected) return;
-  const ref = doc(db, 'questions', q.id);
-  const heatmapEntry = location ? [{ latitude: location.latitude, longitude: location.longitude, weight: 1 }] : [];
-  await updateDoc(ref, {
-    [votes.${user.uid}]: selected,
-    heatmap: q.heatmap ? [...q.heatmap, ...heatmapEntry] : heatmapEntry
-  });
-  Alert.alert('Voted!');
-};
+    if (!selected) return;
+    const ref = doc(db, 'questions', q.id);
+    const newPoint = location 
+      ? [{ latitude: location.latitude, longitude: location.longitude, weight: 1 }]
+      : [];
+    await updateDoc(ref, {
+      [votes.${user.uid}]: selected,
+      heatmap: q.heatmap ? [...q.heatmap, ...newPoint] : newPoint
+    });
+    Alert.alert('Voted!');
+  };
 
   return (
     <TouchableOpacity style={styles.card} onPress={onOpen}>
