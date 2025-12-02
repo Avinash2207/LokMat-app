@@ -1,8 +1,6 @@
-import { initializeApp } from 'firebase/app';
-import 'firebase/auth'; // Compat for auth
-import 'firebase/firestore'; // Compat for firestore
-import * as Location from 'expo-location';
-import MapView, { Heatmap } from 'react-native-maps';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDPQBoOhNWSqUMEcawIF9U7zExUYe_oe1g",
@@ -13,6 +11,9 @@ const firebaseConfig = {
   appId: "1:253512412538:web:25c4448943cf369a5d7ac3"
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = app.auth();
-export const db = app.firestore();
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+export const auth = firebase.auth();
+export const db = firebase.firestore();
