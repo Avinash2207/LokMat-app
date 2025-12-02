@@ -134,7 +134,7 @@ function QuestionCard({ q, user, location, onOpen }) {
     const ref = db.collection('questions').doc(q.id);
     const newPoint = location ? [{ latitude: location.latitude, longitude: location.longitude, weight: 1 }] : [];
     await ref.update({
-      [votes.${user.uid}]: selected,
+      [votes.$[user.uid]]: selected,
       heatmap: q.heatmap ? [...q.heatmap, ...newPoint] : newPoint
     });
     Alert.alert('Voted!');
