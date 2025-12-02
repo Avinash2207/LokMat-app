@@ -1,0 +1,29 @@
+{
+  "name": "lokmat-app",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "expo": "~49.0.0",
+    "expo-location": "~15.0.0",
+    "expo-phone-authentication": "~1.0.0",
+    "firebase": "^10.0.0",
+    "react": "18.2.0",
+    "react-native": "0.72.0",
+    "react-native-maps": "1.7.1",
+    "react-native-reanimated": "~3.3.0",
+    "@react-navigation/native": "^6.1.0",
+    "@react-navigation/stack": "^6.3.0",
+    "react-native-gesture-handler": "~2.12.0",
+    "@react-native-async-storage/async-storage": "1.18.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
